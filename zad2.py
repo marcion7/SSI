@@ -21,7 +21,7 @@ plt.ylim(-3,3)
 plt.grid()
 plt.show()
 
-test = WczytajBazeProbekZTekstem("iris.txt", "atr.txt")
+test = WczytajBazeProbekZTekstem("iris.txt", "iris-type.txt")
 
 def SplitData(data):
     class_label = data.iloc[:, -1]
@@ -38,7 +38,7 @@ plt.figure(figsize=(12, 8))
 # 1
 plt.subplot(2, 2, 1)
 for class_label, data in data_splited.items():
-    plt.scatter(data[2], data[3], label=f'Class {class_label}')
+    plt.scatter(data.iloc[:, 2], data.iloc[:, 3], label=f'Class {class_label}')
 plt.xlabel('Atrybut 3')
 plt.ylabel('Atrybut 4')
 plt.legend()
@@ -46,7 +46,7 @@ plt.legend()
 # 2
 plt.subplot(2, 2, 2)
 for class_label, data in data_splited.items():
-    plt.scatter(data[1], data[3], label=f'Class {class_label}')
+    plt.scatter(data.iloc[:, 1], data.iloc[:, 3], label=f'Class {class_label}')
 plt.xlabel('Atrybut 2')
 plt.ylabel('Atrybut 4')
 plt.legend()
@@ -54,7 +54,7 @@ plt.legend()
 # 3
 plt.subplot(2, 2, 3)
 for class_label, data in data_splited.items():
-    plt.scatter(data[0], data[3], label=f'Class {class_label}')
+    plt.scatter(data.iloc[:, 0], data.iloc[:, 3], label=f'Class {class_label}')
 plt.xlabel('Atrybut 1')
 plt.ylabel('Atrybut 4')
 plt.legend()
@@ -62,7 +62,7 @@ plt.legend()
 # 4
 plt.subplot(2, 2, 4)
 for class_label, data in data_splited.items():
-    plt.scatter(data[1], data[2], label=f'Class {class_label}')
+    plt.scatter(data.iloc[:, 1], data.iloc[:, 2], label=f'Class {class_label}')
 plt.xlabel('Atrybut 2')
 plt.ylabel('Atrybut 3')
 plt.legend()
