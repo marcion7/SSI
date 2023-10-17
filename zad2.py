@@ -32,39 +32,48 @@ def SplitData(data):
     return series_dict
 
 data_splited = SplitData(test.Probki())
+atr = test.NazwyAtr()
+
+def SetClasess(str):
+    classes = str.split('(')[1]
+    classes = classes.split(')')[0]
+    classes= dict(i.split('=') for i in classes.split(','))
+    return classes
+
+classes = SetClasess(atr[4])
 
 plt.figure(figsize=(12, 8))
 
 # 1
 plt.subplot(2, 2, 1)
 for class_label, data in data_splited.items():
-    plt.scatter(data.iloc[:, 2], data.iloc[:, 3], label=f'Class {class_label}')
-plt.xlabel('Atrybut 3')
-plt.ylabel('Atrybut 4')
+    plt.scatter(data.iloc[:, 2], data.iloc[:, 3], label=classes[str(class_label)])
+plt.xlabel(atr[2])
+plt.ylabel(atr[3])
 plt.legend()
 
 # 2
 plt.subplot(2, 2, 2)
 for class_label, data in data_splited.items():
-    plt.scatter(data.iloc[:, 1], data.iloc[:, 3], label=f'Class {class_label}')
-plt.xlabel('Atrybut 2')
-plt.ylabel('Atrybut 4')
+    plt.scatter(data.iloc[:, 1], data.iloc[:, 3], label=classes[str(class_label)])
+plt.xlabel(atr[1])
+plt.ylabel(atr[3])
 plt.legend()
 
 # 3
 plt.subplot(2, 2, 3)
 for class_label, data in data_splited.items():
-    plt.scatter(data.iloc[:, 0], data.iloc[:, 3], label=f'Class {class_label}')
-plt.xlabel('Atrybut 1')
-plt.ylabel('Atrybut 4')
+    plt.scatter(data.iloc[:, 0], data.iloc[:, 3], label=classes[str(class_label)])
+plt.xlabel(atr[0])
+plt.ylabel(atr[3])
 plt.legend()
 
 # 4
 plt.subplot(2, 2, 4)
 for class_label, data in data_splited.items():
-    plt.scatter(data.iloc[:, 1], data.iloc[:, 2], label=f'Class {class_label}')
-plt.xlabel('Atrybut 2')
-plt.ylabel('Atrybut 3')
+    plt.scatter(data.iloc[:, 1], data.iloc[:, 2], label=classes[str(class_label)])
+plt.xlabel(atr[1])
+plt.ylabel(atr[2])
 plt.legend()
 
 plt.show()
