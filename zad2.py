@@ -43,6 +43,7 @@ def SetClasess(str):
 classes = SetClasess(atr[4])
 
 plt.figure(figsize=(12, 8))
+plt.suptitle("Punkty dla klasy Irys")
 
 # 1
 plt.subplot(2, 2, 1)
