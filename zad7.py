@@ -47,5 +47,8 @@ class Siec_hopfielda:
 hopfield = Siec_hopfielda(5,5)
 for wzor in baza_wzor:
     hopfield.naucz_obraz(wzor)
-print(hopfield.rozpoznaj_obraz(baza_test[1]))
 
+for i in range(len(baza_test)):
+    print(f'Znak testowy {i+1}')
+    print(hopfield.rozpoznaj_obraz(baza_test[i]))
+    print('-------------------------------------------------------')
