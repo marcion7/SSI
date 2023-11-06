@@ -40,9 +40,9 @@ class Siec_hopfielda:
                 suma += wyjscie[0][j] * self.weights_table[i][j]
             wyjscie[0][i] = 1 if suma >= 0 else -1
         obraz_skorygowany = wyjscie.reshape(len(obraz[0]), len(obraz[1]))
-        obraz_negatyw = obraz
-        for x in range(len(obraz[0])):
-            for y in range(len(obraz[1])):
+        obraz_negatyw = np.copy(obraz)
+        for x in range(len(obraz_negatyw[0])):
+            for y in range(len(obraz_negatyw[1])):
                 obraz_negatyw[x, y] = 1 if obraz_negatyw[x, y] == -1 else -1
         if np.array_equal(obraz_skorygowany, obraz) or np.array_equal(obraz_skorygowany, obraz_negatyw):
             return obraz_skorygowany
