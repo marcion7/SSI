@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 def euc_distance2d(p1, p2):
     return np.sqrt(pow(p2[0]-p1[0], 2)+pow(p2[1]-p1[1], 2))
@@ -46,3 +47,10 @@ def zachlanne_dopasowanie(bitmap_test, bitmap_wzor):
 for i in range(len(baza_test)):
     bitmap_test, bitmap_wzor = zachlanne_dopasowanie(baza_test[i], baza_wzor)
     print(f'Dla bitmapy testowej {i+1}:\n{bitmap_test}\nNajbardziej podobna jest bitmapa wzorcowa:\n{bitmap_wzor}')
+    plt.subplot(1, 2, 1)
+    plt.imshow(bitmap_test, interpolation='nearest', cmap='Greys')
+    plt.title(f'Bitmapa testowa {i+1}')
+    plt.subplot(1, 2, 2)
+    plt.imshow(bitmap_wzor, interpolation='nearest', cmap='Greys')
+    plt.title(f'Najbardziej podobny wzór')
+    plt.show()
